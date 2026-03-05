@@ -1,0 +1,112 @@
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;700&family=Rajdhani:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --font-display: 'Rajdhani', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+  --font-sans: 'Inter', sans-serif;
+
+  /* Hacker-style dark palette: black + terminal green */
+  --background: 210 40% 2%;
+  --foreground: 140 15% 85%;
+
+  --card: 210 40% 4%;
+  --card-foreground: 140 15% 85%;
+
+  --popover: 210 40% 4%;
+  --popover-foreground: 140 15% 85%;
+
+  --primary: 140 84% 45%;
+  /* terminal green */
+  --primary-foreground: 210 40% 2%;
+
+  --secondary: 160 40% 35%;
+  /* muted green */
+  --secondary-foreground: 140 15% 90%;
+
+  --muted: 210 15% 10%;
+  --muted-foreground: 140 10% 70%;
+
+  --accent: 140 60% 35%;
+  --accent-foreground: 210 40% 2%;
+
+  --destructive: 0 84% 50%;
+  --destructive-foreground: 210 40% 98%;
+
+  --border: 140 20% 20%;
+  --input: 140 20% 20%;
+  --ring: 140 84% 45%;
+
+  --radius: 0.25rem;
+}
+
+@layer base {
+  body {
+    @apply bg-background text-foreground antialiased font-sans selection:bg-primary/30 selection:text-primary-foreground;
+    background-image:
+      radial-gradient(circle at 0% 0%, hsl(var(--primary) / 0.18) 0%, transparent 55%),
+      linear-gradient(to bottom, #000000 0%, hsl(var(--background)) 45%, #020617 100%);
+    overflow-y: auto;
+  }
+
+  ;
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-display tracking-wide uppercase;
+  }
+}
+
+@layer utilities {
+  .text-neon-cyan {
+    text-shadow: 0 0 10px hsl(var(--primary) / 0.5);
+  }
+
+  .text-neon-pink {
+    text-shadow: 0 0 10px hsl(316 100% 50% / 0.5);
+  }
+
+  .border-neon {
+    @apply border border-primary/50 shadow-[0_0_10px_-2px_hsl(var(--primary)/0.3)];
+  }
+
+  .cyber-panel {
+    @apply bg-card border border-border relative overflow-hidden;
+  }
+
+  .cyber-panel::before {
+    content: '';
+    @apply absolute top-0 left-0 w-2 h-2 border-t-2 border-l-2 border-primary;
+  }
+
+  .cyber-panel::after {
+    content: '';
+    @apply absolute bottom-0 right-0 w-2 h-2 border-b-2 border-r-2 border-primary;
+  }
+
+  .grid-bg {
+    background-size: 30px 30px;
+    background-image: linear-gradient(to right, hsl(var(--border) / 0.2) 1px, transparent 1px),
+      linear-gradient(to bottom, hsl(var(--border) / 0.2) 1px, transparent 1px);
+  }
+}
+
+html,
+body,
+#root {
+  height: auto;
+  min-height: 100vh;
+}
+
+.right-panel {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
