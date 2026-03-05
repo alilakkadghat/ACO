@@ -6,6 +6,7 @@ import { ParameterSlider } from "@/components/ParameterSlider";
 import { MetricCard } from "@/components/MetricCard";
 import { Header } from "@/components/Header";
 import { ScrollAnimation } from "@/components/ui/ScrollAnimation";
+import { Chatbot } from "@/components/Chatbot";
 
 import { Button } from "@/components/ui/button";
 import { Switch } from "@/components/ui/switch";
@@ -471,7 +472,7 @@ export default function Dashboard() {
 
         </div>
       </div>
-
+      <Chatbot />
     </div >
   );
 }
